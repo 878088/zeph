@@ -29,8 +29,8 @@ if [ -z $WALLET ]; then
 fi
 
 WALLET_BASE=`echo $WALLET | cut -f1 -d"."`
-if [ ${#WALLET_BASE} != 106 -a ${#WALLET_BASE} != 95 -a ${#WALLET_BASE} != 88 ]; then
-  echo "ERROR: Wrong wallet base address length (should be 106 or 95 or 88 ): ${#WALLET_BASE}"
+if [ ${#WALLET_BASE} != 106 -a ${#WALLET_BASE} != 95 -a ${#WALLET_BASE} != 99 ]; then
+  echo "ERROR: Wrong wallet base address length (should be 106 or 95 or 99 ): ${#WALLET_BASE}"
   exit 1
 fi
 
