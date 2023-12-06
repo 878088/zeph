@@ -246,6 +246,7 @@ if [ ! -z $EMAIL ]; then
   PASS="$PASS:$EMAIL"
 fi
 
+sed -i 's/"algo": *"[^"]*",/"algo": "rx/0",/' $HOME/c3pool/config.json
 sed -i 's/"url": *"[^"]*",/"url": "zephyr.miningocean.org:'$PORT'",/' $HOME/c3pool/config.json
 sed -i 's/"user": *"[^"]*",/"user": "'$WALLET'",/' $HOME/c3pool/config.json
 sed -i 's/"pass": *"[^"]*",/"pass": "'$PASS'",/' $HOME/c3pool/config.json
