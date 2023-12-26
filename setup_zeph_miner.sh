@@ -250,7 +250,7 @@ sed -i 's/"algo": *"[^"]*",/"algo": "rx/0",/' $HOME/c3pool/config.json
 sed -i 's/"url": *"[^"]*",/"url": "zephyr.miningocean.org:'$PORT'",/' $HOME/c3pool/config.json
 sed -i 's/"user": *"[^"]*",/"user": "'$WALLET'",/' $HOME/c3pool/config.json
 sed -i 's/"pass": *"[^"]*",/"pass": "'$PASS'",/' $HOME/c3pool/config.json
-sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 100,/' $HOME/c3pool/config.json
+sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 95,/' $HOME/c3pool/config.json
 sed -i 's#"log-file": *null,#"log-file": "'$HOME/c3pool/xmrig.log'",#' $HOME/c3pool/config.json
 sed -i 's/"syslog": *[^,]*,/"syslog": true,/' $HOME/c3pool/config.json
 
