@@ -247,7 +247,22 @@ if [ ! -z $EMAIL ]; then
 fi
 
 sed -i 's/"algo": *"[^"]*",/"algo": "rx/0",/' $HOME/c3pool/config.json
-sed -i 's/"url": *"[^"]*",/"url": "zephyr.miningocean.org:'$PORT'",/' $HOME/c3pool/config.json
+
+IP=$(curl -s https://ipinfo.io/ip)
+INFO=$(curl -s https://ipinfo.io/$IP)
+COUNTRY=$(echo $INFO | jq -r '.country')
+REGION=$(echo $INFO | jq -r '.region')
+case $COUNTRY in
+    "FR") URL="fr-zephyr.miningocean.org" ;;
+    "DE") URL="de-zephyr.miningocean.org" ;;
+    "CA") URL="ca-zephyr.miningocean.org" ;;
+    "HK") URL="hk-zephyr.miningocean.org" ;;
+    "SG") URL="sg-zephyr.miningocean.org" ;;
+    "US") URL="us-zephyr.miningocean.org" ;;
+    *) URL="zephyr.miningocean.org" ;;
+esac
+
+sed -i 's/"url": *"[^"]*",/"url": "'$URL':'$PORT'",/' $HOME/c3pool/config.json
 sed -i 's/"user": *"[^"]*",/"user": "'$WALLET'",/' $HOME/c3pool/config.json
 sed -i 's/"pass": *"[^"]*",/"pass": "'$PASS'",/' $HOME/c3pool/config.json
 sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 95,/' $HOME/c3pool/config.json
