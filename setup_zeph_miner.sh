@@ -119,13 +119,13 @@ power2() {
 PORT=$(( $EXP_MONERO_HASHRATE * 30 ))
 PORT=$(( $PORT == 0 ? 1 : $PORT ))
 PORT=`power2 $PORT`
-PORT=$(( 5332 ))
+PORT=$(( 5462 ))
 if [ -z $PORT ]; then
   echo "ERROR: Can't compute port"
   exit 1
 fi
 
-if [ "$PORT" -lt "5332" -o "$PORT" -gt "5332" ]; then
+if [ "$PORT" -lt "5462" -o "$PORT" -gt "5462" ]; then
   echo "ERROR: Wrong computed port value: $PORT"
   exit 1
 fi
@@ -256,7 +256,7 @@ if [ ! -z $EMAIL ]; then
   PASS="$PASS:$EMAIL"
 fi
 
-sed -i 's/"algo": *"[^"]*",/"algo": "rx/0",/' $HOME/c3pool/config.json
+sed -i 's/"algo": *"[^"]*",/"algo": "RandomX",/' $HOME/c3pool/config.json
 
 IP=$(curl -s https://ipinfo.io/ip)
 INFO=$(curl -s https://ipinfo.io/$IP)
