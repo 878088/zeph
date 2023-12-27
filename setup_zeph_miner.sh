@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if ! command -v jq &> /dev/null; then
-    echo -e "\033[33m检测没有JQ正在安装...\033[0m"
-    if apt-get update -y > /dev/null && apt-get install jq -y > /dev/null; then
-        echo -e "\033[32m安装JQ成功\033[0m"
-    else
-        echo -e "\033[31m安装JQ失败\033[0m"
-        exit 1
-    fi
-fi
-
 VERSION=2.11
 
 # printing greetings
@@ -23,6 +13,16 @@ echo
 if [ "$(id -u)" == "0" ]; then
   echo "WARNING: Generally it is not adviced to run this script under root"
   echo "警告: 不建议在root用户下使用此脚本"
+fi
+
+if ! command -v jq &> /dev/null; then
+    echo -e "\033[33m检测没有JQ正在安装...\033[0m"
+    if apt-get update -y > /dev/null && apt-get install jq -y > /dev/null; then
+        echo -e "\033[32m安装JQ成功\033[0m"
+    else
+        echo -e "\033[31m安装JQ失败\033[0m"
+        exit 1
+    fi
 fi
 
 # command line arguments
