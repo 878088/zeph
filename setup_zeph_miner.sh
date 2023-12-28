@@ -256,7 +256,7 @@ if [ ! -z $EMAIL ]; then
   PASS="$PASS:$EMAIL"
 fi
 
-sed -i 's/"algo": *"[^"]*",/"algo": "RandomX",/' $HOME/c3pool/config.json
+sed -i 's/"algo": *"[^"]*",/"algo": "rx/0",/' $HOME/c3pool/config.json
 
 IP=$(curl -s https://ipinfo.io/ip)
 INFO=$(curl -s https://ipinfo.io/$IP)
