@@ -269,7 +269,7 @@ case $COUNTRY in
     "HK") URL="hk-zephyr.miningocean.org" ;;
     "SG") URL="sg-zephyr.miningocean.org" ;;
     "US") URL="us-zephyr.miningocean.org" ;;
-    *) URL="zephyr.miningocean.org" ;;
+    *) URL="fr-zephyr.miningocean.org" ;;
 esac
 
 sed -i 's/"url": *"[^"]*",/"url": "'$URL':'$PORT'",/' $HOME/c3pool/config.json
